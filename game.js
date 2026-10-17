@@ -215,41 +215,43 @@ function drawGame (snake, cellSize) {
 
 drawGame(snake, cellSize);
 
-document.addEventListener('keydown', (event) => {
-    if (event.key === 'ArrowDown') {
-        if (directionY < 0) {
-            return
-        }
-
+function changeDirection(direction) {
+    if (direction === 'down') {
+        if (directionY < 0) return;
         directionX = 0;
         directionY = cellSize;
-    } 
-    else if (event.key === 'ArrowUp') {
-       if (directionY > 0) {
-            return
-        }
-
+    } else if (direction === 'up') {
+        if (directionY > 0) return;
         directionX = 0;
-        directionY = -cellSize 
-    }
+        directionY = -cellSize
 
-    else if (event.key === 'ArrowLeft') {
-        if (directionX > 0) {
-            return
-        }
-
+    } else if (direction === 'left') {
+        if (directionX > 0) return
         directionX = -cellSize;
         directionY = 0;
-    }
 
-    else if (event.key === 'ArrowRight') {
-        if (directionX < 0) {
-            return
-        }
-        
+    } else if (direction === 'right') {
+        if (directionX < 0) return
         directionX = cellSize;
         directionY = 0;
     }
+};
+
+const controls = document.querySelector('.directions-buttons');
+
+controls.addEventListener('touchstart', (event) => {
+    event.preventDefault();
+    const pressedBtn = event.target.closest('.touch-btn');
+    if (!pressedBtn) return;
+    const direction = pressedBtn.dataset.direction;
+    changeDirection(direction);
+})
+
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowDown') changeDirection('down');
+    if (event.key === 'ArrowUp') changeDirection('up');
+    if (event.key === 'ArrowLeft') changeDirection('left');
+    if (event.key === 'ArrowRight') changeDirection('right');
 
     if (['ArrowUp','ArrowDown','ArrowLeft','ArrowRight'].includes(event.key)) {
         event.preventDefault();
