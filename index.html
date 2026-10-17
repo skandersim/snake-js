@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Змейка</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-wrapper">
+        <h1 class="title">Змейка</h1>
+
+        <div class="score-panel">
+            Счёт: <span id="score">0</span>
+            Рекорд: <span id="highScore">0</span>
+        </div>
+
+        <div class="canvas-container">
+            <canvas class="field" width="400" height="400"></canvas>
+
+            <div class="start-page">
+                <div class="start-content">
+                    <h2>Змейка</h2>
+                    <p>Управляй стрелками ← ↑ → ↓. Собирай красные яблоки, не врезайся в стены и в себя.</p>
+                    <button class="start-btn">Старт</button>
+                </div>
+            </div>
+        </div>
+
+        <p class="hint">Управление - стрелки на клавиатуре</p>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
