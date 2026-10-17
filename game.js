@@ -247,6 +247,13 @@ controls.addEventListener('touchstart', (event) => {
     changeDirection(direction);
 })
 
+controls.addEventListener('click', (event) => {
+    const pressedBtn = event.target.closest('.touch-btn');
+    if (!pressedBtn) return;
+    const dir = pressedBtn.dataset.direction;
+    changeDirection(dir);
+});
+
 document.addEventListener('keydown', (event) => {
     if (event.key === 'ArrowDown') changeDirection('down');
     if (event.key === 'ArrowUp') changeDirection('up');
