@@ -141,6 +141,9 @@ body {
         justify-items: center;
         margin: 20px auto 0;
         width: fit-content;
+        margin-bottom: 40px;
+        margin-left: 10px;
+        margin-right: 10px;
     }
 
     .touch-btn {
