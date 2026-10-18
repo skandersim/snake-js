@@ -134,6 +134,16 @@ body {
     }
 
 @media (max-width: 768px) {
+    body {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    .game-wrapper {
+        width: 100%;
+        max-width: 400px;
+    }
+
     .directions-buttons {
         display: grid;
         gap: 12px;
