@@ -148,22 +148,22 @@ body {
 
     .directions-buttons {
         display: grid;
-        gap: 12px;
+        gap: 8px;
         grid-template-columns: repeat(3, 1fr);
         justify-items: center;
-        margin: 20px auto 0;
+        margin: 10px auto 20px;
         width: fit-content;
         margin-bottom: 60px;
     }
 
     .touch-btn {
-        min-height: 60px;
-        min-width: 60px;
+        min-height: 50px;
+        min-width: 50px;
         touch-action: manipulation;
         font-size: 18px;
         font-weight: 600;
         letter-spacing: 1px;
-        padding: 12px 36px;
+        padding: 8px 24px;
         border: none;
         border-radius: 10px;
         cursor: pointer;
