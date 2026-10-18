@@ -17,6 +17,12 @@ const cellSize = 20
 let directionX = cellSize;
 let directionY = 0;
 
+const initialSpeed = 150;
+const speedStep = 5;
+const applesSpeedup = 5;
+const minSpeed = 60;
+let currentSpeed = initialSpeed;
+
 let snake = [
     { x: 200, y: 100 },
     { x: 180, y: 100 },
@@ -36,6 +42,7 @@ function resetGame() {
         { x: 140, y: 100 },
     ];
     score = 0;
+    currentSpeed = initialSpeed;
     scoreEl.textContent = score;
     spawnApple();
     drawGame(snake, cellSize);
@@ -45,7 +52,8 @@ startButton.addEventListener('click', () => {
     startPage.classList.add('hidden');
     clearInterval(interval);
     resetGame();
-    interval = setInterval(movement, 150);
+    interval = setInterval(movement, currentSpeed);
+    currentSpeed = initialSpeed;
 });
 
 let apple;
@@ -274,6 +282,14 @@ function movement () {
     if (ateApple) {
         score++;
         scoreEl.textContent = score;
+        if (score % applesSpeedup === 0) {
+            if (currentSpeed >= minSpeed) {
+                currentSpeed -= speedStep;
+            }
+
+            clearInterval(interval)
+            interval = setInterval(movement, currentSpeed)
+        }
 
         if (score > highScore) {
             highScore = score;
