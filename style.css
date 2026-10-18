@@ -135,13 +135,15 @@ body {
 
 @media (max-width: 768px) {
     body {
-        flex-direction: column;
-        padding: 15px;
+        overflow-x: hidden;
     }
 
-    .game-wrapper {
-        width: 100%;
-        max-width: 400px;
+    .canvas-container, .field {
+        max-width: 100%;
+    }
+
+    .field {
+        height: auto;
     }
 
     .directions-buttons {
